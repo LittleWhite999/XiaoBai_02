@@ -10,11 +10,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link rel="icon" type="image/ico" href="https://littlewhite999.github.io/XiaoBai_02/favicon.ico">
-		<title>XiaoBai- 01.1 Reboot Text - 个人主页</title>
+		<title>XiaoBai- 01.2 Reboot Text - 个人主页</title>
 		<!-- 引入Bootstrap icon图标库 -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="dianzan.css"><!-- 引入点赞功能CSS -->
 		<!-- CSS文件 -->
 		<link rel="stylesheet" href="https://littlewhite999.github.io/XiaoBai_02/style.css">
+		<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+		<!-- 引入Jquery文件 -->
 	   	<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xiaoyanu/file-test@2021.11.26/more/homepage.js"></script> -->
 	</head>
 	<body>
@@ -63,6 +66,10 @@
 				</p>
 			</div>
 			<div id="main-2">
+				<div class="likeIcon-wrap">
+					<div class="like-icon" data-key="on"></div>
+					<div class="like-num">5</div>
+				</div>
 				<p class="main-2-text">
 					<i class="bi bi-gender-male" style="color: blue;"></i>
 					性别：男</p>
@@ -85,7 +92,7 @@
 				</p>
 
 				<p class="main-2-text">
-					版本XiaoBai- 01.1 Reboot Text
+					版本XiaoBai- 01.2 Reboot Text
 				</p>
 
 				<p class="main-2-text">
@@ -115,7 +122,7 @@
 			</div>
 
 			<div id="footer">
-				&copy;2023 <a href="" style="color: #000;">XiaoBai_02</a>
+				&copy;2023 <a href="" style="color: #000;">XiaoBai_</a>
 			</div>
 		</div>
 		<!-- XiaoBai_02 API -->
@@ -152,3 +159,30 @@
 		</script>
 	</body>
 </html>
+
+<!-- Jquery点赞功能 -->
+<script type="text/javascript">
+	$(document).ready(function () {
+	// likeClickCount
+	$(".like-icon").on('click', function () {
+		likeClickCount();
+	})
+})
+// likeClickCount
+function likeClickCount() {
+//Number函数将对象的值转换成数字
+	var like_num = Number($('.like-num').html());
+	if ($('.like-icon').attr('data-key') == 'on') {
+		$('.like-icon').addClass('on');
+		// like-num add 
+		like_num = like_num + 1; 
+		$('.like-num').html(like_num);
+		$('.like-icon').attr('data-key', '');
+	} else {
+		$('.like-icon').removeClass('on');
+		like_num = like_num - 1;
+		$('.like-num').html(like_num);
+		$('.like-icon').attr('data-key', 'on');
+	}
+}
+</script>
