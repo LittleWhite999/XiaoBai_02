@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>点赞数</title>
+    <link rel="stylesheet" href="dianzan.css">
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/dzdate.json"></script>
+    <script>
+        // ajax data
+var videoUrl = "接口地址";
+
+$.ajax({
+    type: "get",
+    url: videoUrl,
+    dataType: "json",
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    success: function (data) {
+        var data = data.data;
+        $('.like-num').html(data.praiseCnt);
+    }
+})
+    </script>
+     <script type="text/javascript">
+        $(document).ready(function () {
+        // likeClickCount
+        $(".like-icon").on('click', function () {
+            likeClickCount();
+        })
+    })
+    // likeClickCount
+    function likeClickCount() {
+    //Number函数将对象的值转换成数字
+        var like_num = Number($('.like-num').html());
+        if ($('.like-icon').attr('data-key') == 'on') {
+            $('.like-icon').addClass('on');
+            // like-num add 
+            like_num = like_num + 1; 
+            $('.like-num').html(like_num);
+            $('.like-icon').attr('data-key', '');
+        } else {
+            $('.like-icon').removeClass('on');
+            like_num = like_num - 1;
+            $('.like-num').html(like_num);
+            $('.like-icon').attr('data-key', 'on');
+        }
+    }
+    </script>
+
+</head>
+<body>
+    <div class="likeIcon-wrap">
+        <div class="like-icon" data-key="on"></div>
+        <div class="like-num">1</div>
+    </div>
+</html>
+
