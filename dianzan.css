@@ -12,12 +12,12 @@ body{
     width: 68px;
     height: 62px;
     z-index: 7;
-    background: url("/img/love_white.png") no-repeat center;
+    background: url("https://littlewhite999.github.io/XiaoBai_02/img/love_white.png") no-repeat center;
     background-size: 68px 62px;
 }
 
 .on {
-    background: url("/img/love_red.png") no-repeat center;
+    background: url("https://littlewhite999.github.io/XiaoBai_02/img/love_red.png") no-repeat center;
     background-size: 68px 62px;
 }
 
