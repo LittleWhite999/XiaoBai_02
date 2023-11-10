@@ -2,9 +2,9 @@ body{
     background: grey;
 }
 .likeIcon-wrap {
-    position: fixed;
+    position: absolute;
     margin-top: 10px;
-    margin-left: 250px;
+    margin-left: 200px;
     z-index: 5;
 }
 
